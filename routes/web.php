@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SolutionController;
+use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\CaptchaController;
 
 
 /*
@@ -19,4 +21,14 @@ Route::get('/', function () {
     return view('accueil');
 });
 
+//routes solutions
+
 Route::get('/solutions', [SolutionController::class, 'index'])->name('solutions');
+
+//routes accueil
+
+Route::get('/accueil', [AccueilController::class, 'index'])->name('accueil');
+
+//routes Captcha
+
+Route::get('/captcha', [CaptchaController::class, 'index'])->name('captcha');
