@@ -19,4 +19,14 @@ Route::get('/', function () {
     return view('accueil');
 });
 
+//routes solutions
 Route::get('/solutions', [SolutionController::class, 'index'])->name('solutions');
+
+
+//routes accueil
+
+Route::get('/acceuil', [AccueilController::class, 'index'])->name('acceuil');
+
+//routes Captcha
+
+Route::get('/captcha', [CaptchaController::class, 'index'])->name('captcha');
