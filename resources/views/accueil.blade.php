@@ -22,6 +22,9 @@
             background-color: var(--cyan);
 =======
             color: #333;
+<<<<<<< HEAD
+>>>>>>> f62278a (recolor)
+=======
 >>>>>>> f62278a (recolor)
         }
 
