@@ -9,6 +9,6 @@ class AccueilController extends Controller
 {
     public function index()
     {
-        return view('acceuil');
+        return view('accueil');
     }
 }
