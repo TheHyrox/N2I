@@ -17,8 +17,8 @@
             margin: 0;
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: orange;
+            color: black;
+            background-color: var(--cyan);
         }
 
         a {
@@ -28,10 +28,13 @@
 
         h1, h2, h3 {
             margin-bottom: 10px;
+            font-weight: 1000;
         }
 
         p {
             margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
         }
 
         /* En-tête et Navigation */
@@ -145,16 +148,27 @@
             padding: 20px;
         }
 
+        .accueil-bg-image {
+            background-image: url('{{ asset('images/Iceberg.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: relative;
+        }
+
         .section {
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            font-weight: 500;
+            margin-bottom: 50vh;
+            background-color: var(--lightblue);
         }
 
         .section.visible {
-            opacity: 1;
+            opacity: 0.6;
             transform: translateY(0);
         }
+        
     </style>
 </head>
 <body>
@@ -174,15 +188,13 @@
         </div>
     </section>
 
-    <!-- Section 1 -->
+    <div class="accueil-bg-image">
+        <!-- Section 1 -->
     <section id="section1" class="section">
         <div class="container">
-            <h2>Section 1</h2>
+            <h2>"Poumon de la Terre"</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
-                Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
-                Aenean faucibus nibh et juste cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
-                Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+                Les océans produisent plus de 50 % de l’oxygène que nous respirons, régulent le climat et abritent une biodiversité inestimable. Leur préservation est essentielle à la vie sur Terre.
             </p>
         </div>
     </section>
@@ -190,11 +202,9 @@
     <!-- Section 2 -->
     <section id="section2" class="section">
         <div class="container">
-            <h2>Section 2</h2>
+            <h2>"Une mer de déchets"</h2>
             <p>
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Chaque année, des millions de tonnes de plastique sont déversées dans les océans, formant des gyres immenses et mettant en danger les écosystèmes marins.
             </p>
         </div>
     </section>
@@ -202,11 +212,9 @@
     <!-- Section 3 -->
     <section id="section3" class="section">
         <div class="container">
-            <h2>Section 3</h2>
+            <h2>"Un océan vide"</h2>
             <p>
-                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit,
-                nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula.
-                Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.
+                L'exploitation excessive des ressources marines entraîne l’effondrement des populations de poissons et perturbe les chaînes alimentaires, menaçant la sécurité alimentaire mondiale.
             </p>
         </div>
     </section>
@@ -214,11 +222,9 @@
     <!-- Section 4 -->
     <section id="section4" class="section">
         <div class="container">
-            <h2>Section 4</h2>
+            <h2>"Des eaux corrosives"</h2>
             <p>
-                In hac habitasse platea dictumst. Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris,
-                sed placerat ipsum urna sed risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                Nulla facilisi. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
+                Les océans absorbent une grande partie du CO2 émis par les activités humaines, ce qui les rend plus acides. Ce phénomène déstabilise les coraux, coquillages et d’autres espèces sensibles.
             </p>
         </div>
     </section>
@@ -226,52 +232,14 @@
     <!-- Section 5 -->
     <section id="section5" class="section">
         <div class="container">
-            <h2>Section 5</h2>
+            <h2>"Le point de non-retour"</h2>
             <p>
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci.
-                Phasellus consectetuer vestibulum elit. Aenean eget metus. In auctor lobortis lacus. Quisque eu nunc lobortis,
-                ullamcorper urna eu, tincidunt mauris.
+                La destruction des habitats marins, comme les récifs coralliens et les mangroves, menace l’équilibre des océans. Si ces écosystèmes disparaissent, les océans pourraient ne jamais s’en remettre.
             </p>
         </div>
     </section>
-
-    <!-- Section 6 -->
-    <section id="section6" class="section">
-        <div class="container">
-            <h2>Section 6</h2>
-            <p>
-                Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
-                Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-                Nam eget dui. Etiam rhoncus.
-            </p>
-        </div>
-    </section>
-
-    <!-- Section 7 -->
-    <section id="section7" class="section">
-        <div class="container">
-            <h2>Section 7</h2>
-            <p>
-                Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-                Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
-                Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
-            </p>
-        </div>
-    </section>
-
-    <!-- Section 8 -->
-    <section id="section8" class="section">
-        <div class="container">
-            <h2>Section 8</h2>
-            <p>
-                Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum
-                primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci,
-                ac placerat dolor lectus quis orci.
-            </p>
-        </div>
-    </section>
-
+    </div>
+    
     <!-- Section Contact -->
     <section id="contact">
         <div class="container">
