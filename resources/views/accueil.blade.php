@@ -18,7 +18,6 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: orange;
         }
 
         a {
@@ -88,7 +87,7 @@
 
         .btn {
             display: inline-block;
-            background-color: #7f0e98;
+            background-color: var(--orange);
             color: #fff;
             padding: 10px 30px;
             font-size: 18px;
