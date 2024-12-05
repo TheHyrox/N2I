@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Page d'Accueil Complète</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Page d'Accueil</title>
+    <link rel="stylesheet" href="/../css/accueil.css">
 </head>
 <body>
 
@@ -14,18 +14,12 @@
                 <h1>MonSiteWeb</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#apropos">À Propos</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#galerie">Galerie</a></li>
-                <li><a href="#temoignages">Témoignages</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">À Propos</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Galerie</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
-            <div class="burger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
         </nav>
     </header>
 
@@ -34,7 +28,7 @@
         <div class="hero">
             <h2>Bienvenue sur MonSiteWeb</h2>
             <p>Nous créons des solutions numériques innovantes pour votre entreprise.</p>
-            <a href="#contact" class="btn">Contactez-nous</a>
+            <a href="#" class="btn">En savoir plus</a>
         </div>
     </section>
 
@@ -42,7 +36,7 @@
     <section id="apropos">
         <div class="container">
             <h2>À Propos de Nous</h2>
-            <p>MonSiteWeb est une agence web dédiée à la création de sites internet modernes et efficaces. Notre équipe d'experts travaille avec passion pour réaliser vos projets numériques.</p>
+            <p>Nous sommes une agence web spécialisée dans la création de sites internet modernes et efficaces.</p>
         </div>
     </section>
 
@@ -53,49 +47,15 @@
             <div class="services-grid">
                 <div class="service">
                     <h3>Développement Web</h3>
-                    <p>Création de sites web personnalisés pour votre entreprise.</p>
+                    <p>Création de sites web sur mesure.</p>
                 </div>
                 <div class="service">
                     <h3>Design Graphique</h3>
-                    <p>Conception de visuels attractifs pour votre marque.</p>
+                    <p>Conception de visuels attractifs.</p>
                 </div>
                 <div class="service">
                     <h3>Marketing Digital</h3>
-                    <p>Stratégies pour améliorer votre présence en ligne.</p>
-                </div>
-                <div class="service">
-                    <h3>SEO</h3>
-                    <p>Optimisation pour les moteurs de recherche.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Galerie -->
-    <section id="galerie">
-        <div class="container">
-            <h2>Galerie</h2>
-            <div class="gallery-grid">
-                <img src="image1.jpg" alt="Projet 1">
-                <img src="image2.jpg" alt="Projet 2">
-                <img src="image3.jpg" alt="Projet 3">
-                <img src="image4.jpg" alt="Projet 4">
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Témoignages -->
-    <section id="temoignages">
-        <div class="container">
-            <h2>Témoignages</h2>
-            <div class="testimonials">
-                <div class="testimonial">
-                    <p>"MonSiteWeb a transformé notre présence en ligne. Nous recommandons vivement leurs services."</p>
-                    <h4>- Client Satisfait</h4>
-                </div>
-                <div class="testimonial">
-                    <p>"Une équipe professionnelle et à l'écoute. Notre site web est magnifique !"</p>
-                    <h4>- Entreprise Heureuse</h4>
+                    <p>Stratégies pour améliorer votre visibilité en ligne.</p>
                 </div>
             </div>
         </div>
@@ -105,39 +65,15 @@
     <section id="contact">
         <div class="container">
             <h2>Contactez-nous</h2>
-            <form action="#" method="post">
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" required>
-
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="sujet">Sujet :</label>
-                <input type="text" id="sujet" name="sujet" required>
-
-                <label for="message">Message :</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <input type="submit" value="Envoyer">
-            </form>
+            <p>Pour plus d'informations, n'hésitez pas à nous contacter.</p>
+            <a href="#" class="btn">Contact</a>
         </div>
     </section>
 
     <!-- Pied de page -->
     <footer>
-        <div class="container">
-            <p>&copy; 2023 MonSiteWeb. Tous droits réservés.</p>
-            <ul class="socials">
-                <li><a href="#"><img src="facebook-icon.png" alt="Facebook"></a></li>
-                <li><a href="#"><img src="twitter-icon.png" alt="Twitter"></a></li>
-                <li><a href="#"><img src="instagram-icon.png" alt="Instagram"></a></li>
-                <li><a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a></li>
-            </ul>
-        </div>
+        <p>&copy; <?php echo date("Y"); ?> MonSiteWeb. Tous droits réservés.</p>
     </footer>
-
-    <!-- Script pour le menu burger -->
-    <script src="script.js"></script>
 
 </body>
 </html>
