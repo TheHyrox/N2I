@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Page d'Accueil</title>
-    <link rel="stylesheet" href="{{ secure_asset('css/accueil.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/accueil2.css') }}">
 </head>
 <body>
 
