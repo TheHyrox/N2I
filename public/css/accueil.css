@@ -29,7 +29,7 @@ p {
 
 /* En-tête et Navigation */
 header {
-    background-color: #333;
+    background-color: var(--darkblue);
     color: #fff;
 }
 
@@ -59,12 +59,12 @@ nav {
 }
 
 .nav-links a:hover {
-    color: #ff6600;
+    color: var(--orange);
 }
 
 /* Section Hero */
 .hero {
-    background-color: #f4f4f4;
+    background-color: var(--lightblue);
     padding: 100px 20px;
     text-align: center;
 }
@@ -81,7 +81,7 @@ nav {
 
 .btn {
     display: inline-block;
-    background-color: #ff6600;
+    background-color: var(--orange);
     color: #fff;
     padding: 10px 30px;
     font-size: 18px;
@@ -132,8 +132,19 @@ section h2 {
 
 /* Pied de page */
 footer {
-    background-color: #333;
+    background-color: var(--darkblue);
     color: #fff;
     text-align: center;
     padding: 20px;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

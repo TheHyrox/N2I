@@ -23,8 +23,8 @@ Route::get('/', function () {
 });
 
 //routes solutions
-Route::get('/solutions', [SolutionController::class, 'index'])->name('solutions');
 
+Route::get('/solutions', [SolutionController::class, 'index'])->name('solutions');
 
 //routes accueil
 
