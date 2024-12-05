@@ -122,6 +122,16 @@
             .rules li {
                 margin-bottom: 10px;
             }
+
+            footer {
+                background-color: var(--darkblue);
+                color: #fff;
+                text-align: center;
+                padding: 10px 0;
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+            }
         </style>
         @include('navigation')
 
@@ -140,7 +150,7 @@
             </ul>
         </div>
 
-        <script src="{{ asset('js/email-input.js') }}"></script> <!-- Lien vers le fichier JavaScript -->
+        <script src="{{ asset('js/email-input.js') }}"></script>
 
         @include('pied_page')
     </body>
