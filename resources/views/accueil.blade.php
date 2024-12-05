@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    {{ include('navigation') }}
+    @include('navigation')
 
     <!-- Section d'accueil -->
     <section id="accueil">
@@ -56,7 +56,7 @@
         </div>
     </section>
 
-    
+    @include('pied_page')
 
 </body>
 </html>
