@@ -1,78 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frustrating Email Input</title>
-    <link href="{{ asset('css/accueil.css') }}" rel="stylesheet"> <!-- Si vous utilisez Laravel Mix pour compiler vos assets CSS -->
-</head>
-<body>
-<form>
-    <label for="emailInput">Enter your email:</label>
-    <input type="text" id="emailInput" oninput="handleInput(event)" placeholder="username@domain.com" />
-    <button type="submit">Submit</button>
-</form>
-
-<div class="rules">
-    <p>Rules:</p>
-    <ul>
-        <li>Start with a letter</li>
-        <li>Alternating letters and numbers</li>
-        <li>Use @ before domain, and domain in reverse order</li>
-    </ul>
-</div>
-
-<script>
-    const emailInput = document.getElementById('emailInput');
-    let currentCharIndex = 0;
-    const rules = [
-        { charType: 'letter', isUpperCase: false },
-        { charType: 'digit' },
-        { charType: 'letter', isUpperCase: true },
-        { charType: 'digit' },
-        { charType: 'special', chars: ['@', '.', '-', '_'] }
-    ];
-
-    function handleInput(event) {
-        const inputValue = event.target.value;
-
-        // Ignore backspace or delete key (keyCode 8 and 46)
-        if (event.inputType === 'deleteContentBackward' || event.inputType === 'deleteContentForward') {
-            return;
-        }
-
-        let isValid = true;
-        for (let i = 0; i < inputValue.length; i++) {
-            const currentChar = inputValue[i];
-            const rule = rules[i % rules.length];
-
-            // Check character validity
-            if (rule.charType === 'letter' && !/[a-zA-Z]/.test(currentChar)) {
-                isValid = false;
-                break;
-            } else if (rule.charType === 'digit' && !/[0-9]/.test(currentChar)) {
-                isValid = false;
-                break;
-            } else if (rule.charType === 'special' && !rule.chars.includes(currentChar)) {
-                isValid = false;
-                break;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Frustrating Email Input</title>
+    </head>
+    <body>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                background-color: var(--orange);
             }
-        }
 
-        if (!isValid) {
-            // Apply shaking animation on error
-            emailInput.classList.add('shake');
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
 
-            // Remove a random number of characters (between 1 and 3)
-            const randomCharsToRemove = Math.floor(Math.random() * 3) + 1;
-            emailInput.value = inputValue.slice(0, -randomCharsToRemove);
+            h1, h2, h3 {
+                margin-bottom: 10px;
+            }
 
-            // Remove the shaking class after the animation ends
-            setTimeout(() => {
-                emailInput.classList.remove('shake');
-            }, 300);
-        }
-    }
-</script>
-</body>
+            p {
+                margin-bottom: 20px;
+            }
+
+            header {
+                background-color: var(--darkblue);
+                color: #fff;
+            }
+
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+            }
+
+            .logo h1 {
+                margin: 0;
+            }
+
+            .nav-links {
+                list-style: none;
+                display: flex;
+            }
+
+            .nav-links li {
+                margin-left: 20px;
+            }
+
+            .nav-links a {
+                color: #fff;
+                font-weight: bold;
+            }
+
+            .nav-links a:hover {
+                color: var(--orange);
+            }
+
+            form {
+                max-width: 600px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: var(--lightblue);
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            label {
+                display: block;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            button {
+                display: inline-block;
+                background-color: #7f0e98;
+                color: #fff;
+                padding: 10px 30px;
+                font-size: 18px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #e65c00;
+            }
+
+            .rules {
+                max-width: 600px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: var(--lightblue);
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .rules p {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .rules ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .rules li {
+                margin-bottom: 10px;
+            }
+        </style>
+        @include('navigation')
+
+        <form>
+            <label for="emailInput">Enter your email:</label>
+            <input type="text" id="emailInput" oninput="handleInput(event)" placeholder="username@domain.com" />
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="rules">
+            <p>Rules:</p>
+            <ul>
+                <li>Start with a letter</li>
+                <li>Alternating letters and numbers</li>
+                <li>Use @ before domain, and domain in reverse order</li>
+            </ul>
+        </div>
+
+        <script src="{{ asset('js/email-input.js') }}"></script> <!-- Lien vers le fichier JavaScript -->
+
+        @include('pied_page')
+    </body>
 </html>
