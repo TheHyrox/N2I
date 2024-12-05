@@ -23,7 +23,7 @@
     </section>
 
     <!-- Section 1 -->
-    <section id="section1">
+    <section id="section1" class="section">
         <div class="container">
             <h2>Section 1</h2>
             <p>
@@ -36,7 +36,7 @@
     </section>
 
     <!-- Section 2 -->
-    <section id="section2">
+    <section id="section2" class="section">
         <div class="container">
             <h2>Section 2</h2>
             <p>
@@ -48,7 +48,7 @@
     </section>
 
     <!-- Section 3 -->
-    <section id="section3">
+    <section id="section3" class="section">
         <div class="container">
             <h2>Section 3</h2>
             <p>
@@ -60,7 +60,7 @@
     </section>
 
     <!-- Section 4 -->
-    <section id="section4">
+    <section id="section4" class="section">
         <div class="container">
             <h2>Section 4</h2>
             <p>
@@ -72,7 +72,7 @@
     </section>
 
     <!-- Section 5 -->
-    <section id="section5">
+    <section id="section5" class="section">
         <div class="container">
             <h2>Section 5</h2>
             <p>
@@ -85,7 +85,7 @@
     </section>
 
     <!-- Section 6 -->
-    <section id="section6">
+    <section id="section6" class="section">
         <div class="container">
             <h2>Section 6</h2>
             <p>
@@ -97,7 +97,7 @@
     </section>
 
     <!-- Section 7 -->
-    <section id="section7">
+    <section id="section7" class="section">
         <div class="container">
             <h2>Section 7</h2>
             <p>
@@ -109,7 +109,7 @@
     </section>
 
     <!-- Section 8 -->
-    <section id="section8">
+    <section id="section8" class="section">
         <div class="container">
             <h2>Section 8</h2>
             <p>
@@ -133,6 +133,5 @@
     </section>
 
     @include('pied_page')
-
-</body>
+    <script src="{{ asset('js/scroll.js') }}"></script></body>
 </html>
