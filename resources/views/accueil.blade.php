@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Page d'Accueil</title>
-    <link rel="stylesheet" href="css/accueil.css">
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
 </head>
 <body>
 
