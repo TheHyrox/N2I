@@ -173,39 +173,58 @@
 </div>
 
 <script>
-    let emailFormat = /([a-zA-Z0-9])@([a-zA-Z0-9]+\.[a-zA-Z]{2,})/;
-    let lastInputWasLetter = false;
+    const emailInput = document.getElementById('emailInput');
+    const rules = [
+        { charType: 'letter', isUpperCase: false },
+        { charType: 'digit' },
+        { charType: 'letter', isUpperCase: true },
+        { charType: 'digit' }
+    ];
+    let currentCharIndex = 0;
 
-    function checkEmail(event) {
-        let input = event.target.value;
+    function handleInput(event) {
+        const inputValue = event.target.value;
 
-        // Si l'input ne correspond pas au format, secouer le champ
-        if (!emailFormat.test(input)) {
-            event.target.classList.add("invalid");
-            event.target.classList.add("shake");
-            setTimeout(() => {
-                event.target.classList.remove("shake");
-            }, 300);
-        } else {
-            event.target.classList.remove("invalid");
+        // Ignore Backspace or Delete key for error handling
+        if (event.inputType === 'deleteContentBackward' || event.inputType === 'deleteContentForward') {
+            return;
         }
 
-        // Frustration supplémentaire : attendre avant d'afficher un caractère
-        if (input.length > 0) {
-            setTimeout(() => {
-                validateInput(input);
-            }, 1000); // attente de 1 seconde avant d'afficher
+        // Validate input based on the current rule
+        if (currentCharIndex < rules.length) {
+            const currentRule = rules[currentCharIndex];
+
+            if (currentRule.charType === 'letter' && !isLetter(inputValue.slice(-1), currentRule.isUpperCase)) {
+                triggerError();
+            } else if (currentRule.charType === 'digit' && !isDigit(inputValue.slice(-1))) {
+                triggerError();
+            } else {
+                // No error, move to the next rule
+                currentCharIndex++;
+            }
         }
     }
 
-    function validateInput(input) {
-        let lastChar = input[input.length - 1];
-        if (lastChar === '@' && !lastInputWasLetter) {
-            document.getElementById('emailInput').classList.add('waiting');
-            alert('Please type a letter before the @ symbol!');
-        } else {
-            lastInputWasLetter = /[a-zA-Z]/.test(lastChar);
-        }
+    // Function to check if a character is a letter (with case check)
+    function isLetter(char, isUpperCase) {
+        const letterRegex = isUpperCase ? /^[A-Z]$/ : /^[a-zA-Z]$/;
+        return letterRegex.test(char);
+    }
+
+    // Function to check if a character is a digit
+    function isDigit(char) {
+        return /^\d$/.test(char);
+    }
+
+    // Trigger error and remove a random number of characters
+    function triggerError() {
+        emailInput.classList.add('shake');
+        setTimeout(() => emailInput.classList.remove('shake'), 300);
+
+        // Remove a random number of characters (1 to 5 characters)
+        const randomLength = Math.floor(Math.random() * 5) + 1;
+        emailInput.value = emailInput.value.slice(0, -randomLength);
+        currentCharIndex = 0; // Reset to start validation again
     }
 </script>
 
