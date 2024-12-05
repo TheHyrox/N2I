@@ -12,7 +12,7 @@
     <!-- Section d'accueil -->
     <section id="accueil">
         <div class="hero">
-            <h2>Lorem Ipsum Dolor BITE Sit Amet</h2>
+            <h2>Lorem Ipsum Dolor GROSSE BITE Sit Amet</h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor.
                 Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet.
