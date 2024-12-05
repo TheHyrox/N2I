@@ -9,6 +9,6 @@ class SolutionController extends Controller
 {
     public function index()
     {
-        return view('solutions.index');
+        return view('solutions');
     }
 }
