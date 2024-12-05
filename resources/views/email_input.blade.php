@@ -23,7 +23,7 @@
             </ul>
         </div>
 
-        <script src="{{ asset('../../public/js/email-input.js') }}"></script> <!-- Lien vers le fichier JavaScript -->
+        <script src="{{ asset('js/email-input.js') }}"></script> <!-- Lien vers le fichier JavaScript -->
 
         @include('pied_page')
     </body>
