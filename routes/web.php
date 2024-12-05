@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SolutionController;
-use App\Http\Controllers\CaptchaController;
 use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\CaptchaController;
 
 
 /*
