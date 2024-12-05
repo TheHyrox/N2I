@@ -156,10 +156,9 @@
 </head>
 <body>
 @include('navigation')
-
 <form>
     <label for="emailInput">Enter your email:</label>
-    <input type="text" id="emailInput" oninput="checkEmail(event)" placeholder="username@domain.com" />
+    <input type="text" id="emailInput" oninput="handleInput(event)" placeholder="username@domain.com" />
     <button type="submit">Submit</button>
 </form>
 
@@ -167,8 +166,9 @@
     <p>Rules:</p>
     <ul>
         <li>Start with a letter</li>
-        <li>Alternating letters and numbers</li>
-        <li>Use @ before domain, and domain in reverse order</li>
+        <li>Alternate between letters and digits (no two digits together)</li>
+        <li>Allowed characters: all characters, including @, .</li>
+        <li>Ensure the correct format (example: username@domain.com)</li>
     </ul>
 </div>
 
@@ -227,7 +227,6 @@
         currentCharIndex = 0; // Reset to start validation again
     }
 </script>
-
 @include('pied_page')
 </body>
 </html>
