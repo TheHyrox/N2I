@@ -10,7 +10,7 @@
                 <li><a href="{{ route('captcha') }}">Captcha</a></li>
                 <li><a href="#">Galerie</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="{{ route('email-input') }}">Email chiant</a></li>
+                <li><a href="{{ route('email_input') }}">Email chiant</a></li>
             </ul>
         </nav>
     </header>
