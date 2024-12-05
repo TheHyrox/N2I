@@ -32,7 +32,7 @@ Route::get('/accueil', [AccueilController::class, 'index'])->name('accueil');
 
 //routes Captcha
 
-Route::get('/captcha', [CaptchaController::class, 'index'])->name('captcha');
+Route::get('/captcha', [\App\Http\Controllers\CaptchaController::class, 'index'])->name('captcha');
 
 //routes email-chiant
 
