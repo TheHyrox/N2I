@@ -17,8 +17,12 @@
             margin: 0;
             font-family: Arial, sans-serif;
             line-height: 1.6;
+<<<<<<< HEAD
             color: black;
             background-color: var(--cyan);
+=======
+            color: #333;
+>>>>>>> f62278a (recolor)
         }
 
         a {
@@ -91,7 +95,7 @@
 
         .btn {
             display: inline-block;
-            background-color: #7f0e98;
+            background-color: var(--orange);
             color: #fff;
             padding: 10px 30px;
             font-size: 18px;
