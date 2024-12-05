@@ -23,11 +23,14 @@
 =======
             color: #333;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f62278a (recolor)
 =======
 >>>>>>> f62278a (recolor)
 =======
 >>>>>>> 20b6c8a (Better text)
+=======
+>>>>>>> f62278a (recolor)
         }
 
         a {
