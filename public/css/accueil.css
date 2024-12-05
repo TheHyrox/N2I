@@ -1,4 +1,12 @@
 /* Styles généraux */
+:root{
+    --pink: #f9968b;
+    --orange: #f27438;
+    --darkblue: #26474e;
+    --lightblue: #76cdcd;
+    --cyan: #2cced2;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
