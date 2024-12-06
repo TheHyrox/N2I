@@ -272,13 +272,17 @@
             right: 10px;
             background: none;
             border: none;
-            font-size: 7px;
+            font-size: 50px;
             cursor: pointer;
-            color: lightgray
+            color: red
         }
 
         .no-scroll {
             overflow: hidden;
+        }
+
+        .hidden {
+            display: none;
         }
 
     </style>
@@ -374,7 +378,7 @@
         <div class="scrollable-div">
             <h2>Marcel Proust - À la recherche du temps perdu</h2>
             <p>
-                {{ $fileContents }}
+                
             </p>
             <button id="close-button" class="close-button">&times;</button>
         </div>
@@ -413,7 +417,9 @@
             }
 
             closeButton.addEventListener('click', function() {
-                togglePopup();
+                popupBackground.classList.toggle('invisible');
+                document.body.classList.toggle('scroll', popupBackground.classList.contains('invisible'));
+                popupBackground.classList.add('hidden'); // Add this line to hide the popup
             });
 
             document.addEventListener('mousemove', (e) => {
