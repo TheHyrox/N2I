@@ -11,6 +11,7 @@
             --darkblue: #26474e;
             --lightblue: #76cdcd;
             --cyan: #2cced2;
+            --overlay-bg: rgba(0, 0, 0, 0.8);
         }
 
         body {
@@ -19,6 +20,23 @@
             line-height: 1.6;
             color: black;
             background-color: var(--cyan);
+        }
+
+        body.darkened {
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.darkened::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            pointer-events: none;
         }
 
         a {
@@ -96,6 +114,8 @@
             padding: 10px 30px;
             font-size: 18px;
             border-radius: 5px;
+            position: relative;
+            transition: transform 0.3s ease;
         }
 
         .btn:hover {
@@ -176,7 +196,54 @@
             transform: translateY(0);
             backdrop-filter: blur(50px); 
         }
-        
+
+        /* Cookie Consent */
+        .cookie-consent {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cookie-consent p {
+            margin: 0;
+            font-size: 24px;
+            max-width: 80%;
+        }
+
+        .cookie-consent .btn {
+            margin-top: 20px;
+            background-color: red;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            position: absolute;
+        }
+
+        .cookie-consent .btn:hover {
+            background-color: darkred;
+        }
+
+        .scrollable-div {
+            width: 100px;
+            height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -196,80 +263,111 @@
 
     <div class="accueil-bg-image">
         <!-- Section 1 -->
-    <section id="section1" class="section">
-        <div class="container">
-            <h2>"Les poumons de la Terre"</h2>
-            <p>Si l’océan était un corps humain, il serait ses poumons : il produit plus de 50 % de l’oxygène que nous respirons. Mais ces poumons sont en danger, étouffés par la pollution et surchargés de CO2. Leur préservation est indispensable à la vie sur Terre, tout comme la santé de nos propres organes.
-            </p>
-        </div>
-    </section>
+        <section id="section1" class="section">
+            <div class="container">
+                <h2>"Les poumons de la Terre"</h2>
+                <p>Si l’océan était un corps humain, il serait ses poumons : il produit plus de 50 % de l’oxygène que nous respirons. Mais ces poumons sont en danger, étouffés par la pollution et surchargés de CO2. Leur préservation est indispensable à la vie sur Terre, tout comme la santé de nos propres organes.
+                </p>
+            </div>
+        </section>
 
-    <!-- Section 2 -->
-    <section id="section2" class="section">
-        <div class="container">
-            <h2>"Un estomac empoisonné"</h2>
-            <p>
-            Chaque jour, l’océan, comme un estomac, digère ce que l’humanité lui déverse. Malheureusement, ce sont souvent des déchets plastiques, des millions de tonnes chaque année, qui s’y accumulent, créant des "gyres" de déchets et empoisonnant les créatures marines. Cet estomac malade reflète l’impact de nos excès.
-            </p>
-        </div>
-    </section>
-
-    <!-- Section 3 -->
-    <section id="section3" class="section">
-        <div class="container">
-            <h2>"Un squelette fragilisé"</h2>
-            <p>
-            Les récifs coralliens et les mangroves forment la colonne vertébrale de l’océan. Ces structures soutiennent une biodiversité immense et protègent les côtes. Mais la destruction massive de ces habitats érode cette charpente essentielle, menaçant tout l’équilibre océanique.
-            </p>
-        </div>
-    </section>
-
-    <!-- Section 4 -->
-    <section id="section4" class="section">
-        <div class="container">
-            <h2>"Un cœur affaibli"</h2>
-            <p>
-            L’océan est le cœur battant de la planète, régulant le climat et les courants. Mais la surpêche et l’exploitation intensive perturbent ce rythme naturel, comme un cœur stressé, incapable de nourrir les populations marines et humaines qui en dépendent.
-            </p>
-        </div>
-    </section>
-
-    <!-- Section 5 -->
-    <section id="section5" class="section">
-        <div class="container">
-            <h2>"Un sang corrosif"</h2>
-            <p>
-            En absorbant une grande partie du CO2 émis par les activités humaines, l’océan devient plus acide, comme un sang qui s’intoxique. Cette acidification affaiblit les coquillages, les coraux, et d’innombrables autres espèces, perturbant tout l’écosystème marin.
-            </p>
-        </div>
-    </section>
+        <!-- Section 2 -->
+        <section id="section2" class="section">
+            <div class="container">
+                <h2>"Le cœur battant du climat"</h2>
+                <p>L’océan régule le climat de notre planète en absorbant une grande partie de la chaleur et du CO2. Mais cette capacité est mise à rude épreuve par les émissions de gaz à effet de serre. Protéger l’océan, c’est protéger notre climat.
+                </p>
+            </div>
+        </section>
     </div>
 
-    <!-- Section 6 -->
-    <section id="section6" class="section">
-        <div class="container">
-            <h2>"À l’aube d’un coma"</h2>
-            <p>
-            Si nous continuons à maltraiter cet immense corps qu’est l’océan, nous risquons de l’amener à un point de non-retour, un état comateux dont il ne pourra peut-être jamais se relever. Chaque action compte pour sauver ce géant fragile et vital.
-            </p>
-        </div>
-    </section>
+    <div class="scrollable-div">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
-    
-    <!-- Section Contact -->
-    <section id="contact">
-    <div class="container">
-        <h2>Contactez-nous</h2>
-        <p>
-            Pour plus d'informations sur notre initiative et pour soutenir la cause, visitez le site de <a href="https://raceforwater.org" target="_blank" rel="noopener noreferrer">Race For Water</a>.
-        </p>
-        <a href="https://raceforwater.org" class="btn" target="_blank" rel="noopener noreferrer">En savoir plus</a>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent">
+        <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer sur ce site, vous acceptez notre utilisation des cookies.</p>
+        <button class="btn teleport-btn">Accepter</button>
     </div>
-    </section>
 
+    <script>
+        const btn = document.querySelector('.teleport-btn');
+        const consentBox = document.querySelector('.cookie-consent');
+        const body = document.body;
+        const threshold = 100; // Distance in pixels to trigger movement
+        let clickCount = 0; // Initialize click counter
 
+        // Darken the rest of the page
+        body.classList.add('darkened');
 
-    @include('pied_page')
-    <script src="{{ asset('js/scroll.js') }}"></script>
+        // Initialize button position
+        btn.style.left = '50%';
+        btn.style.top = '50%';
+        btn.style.transform = 'translate(-50%, -50%)';
+
+        document.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const consentRect = consentBox.getBoundingClientRect();
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            const buttonCenterX = rect.left + rect.width / 2;
+            const buttonCenterY = rect.top + rect.height / 2;
+
+            const distance = Math.hypot(mouseX - buttonCenterX, mouseY - buttonCenterY);
+
+            if (distance < threshold) {
+                const dx = buttonCenterX - mouseX;
+                const dy = buttonCenterY - mouseY;
+                const angle = Math.atan2(dy, dx);
+
+                const moveX = Math.cos(angle) * 10; // Adjust movement speed
+                const moveY = Math.sin(angle) * 10;
+
+                // Calculate new position
+                let newX = rect.left + moveX - consentRect.left;
+                let newY = rect.top + moveY - consentRect.top;
+
+                // Ensure the button stays within the consent box
+                newX = Math.max(0, Math.min(newX, consentRect.width - rect.width));
+                newY = Math.max(0, Math.min(newY, consentRect.height - rect.height));
+
+                // Update button position
+                btn.style.left = `${newX}px`;
+                btn.style.top = `${newY}px`;
+            }
+        });
+
+        btn.addEventListener('mouseover', function() {
+            btn.textContent = 'Ne me mange pas';
+        });
+
+        btn.addEventListener('click', function() {
+            clickCount++; // Increment click counter
+            if (clickCount >= 5) {
+                
+            } else {
+                alert('Merci d\'avoir accepté les cookies!');
+            }
+            btn.style.left = '50%';
+            btn.style.top = '50%';
+            btn.style.transform = 'translate(-50%, -50%)';
+            btn.textContent = 'Accepter';
+        });
+
+        function getRandomText() {
+            const texts = [
+                'Texte aléatoire 1',
+                'Texte aléatoire 2',
+                'Texte aléatoire 3',
+                'Texte aléatoire 4',
+                'Texte aléatoire 5'
+            ];
+            return texts[Math.floor(Math.random() * texts.length)];
+        }
+    </script>
+
 </body>
 </html>
