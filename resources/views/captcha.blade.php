@@ -18,7 +18,7 @@
             </p>
             <!-- Placeholder for Captcha -->
             <div class="captcha-placeholder">
-                <!-- Captcha widget will be inserted here -->
+                <iframe frameborder="0" src="https://itch.io/embed-upload/12179708?color=333333" allowfullscreen="" width="640" height="380"><a href="https://drakhardlord.itch.io/test">Play Test on itch.io</a></iframe>
             </div>
             <a href="#" class="btn">Soumettre</a>
         </div>
