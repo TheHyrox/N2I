@@ -165,13 +165,37 @@
 
         .captcha-placeholder {
             margin: 20px 0;
+            border: 2px solid var(--darkblue);
+            padding: 10px;
+            display: inline-block;
+            background-color: #fff;
+            text-align: left;
+            width: 300px;
+            position: relative;
+        }
+
+        .captcha-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .captcha-checkbox input {
+            margin-right: 10px;
+        }
+
+        .captcha-logo {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 50px;
         }
 
         #captcha .btn {
             background-color: var(--orange);
         }
     </style>
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
@@ -186,7 +210,15 @@
             </p>
             <!-- Placeholder for Captcha -->
             <div class="captcha-placeholder">
-                <iframe frameborder="0" src="https://itch.io/embed-upload/12179708?color=333333" allowfullscreen="" width="640" height="380"><a href="https://drakhardlord.itch.io/test">Play Test on itch.io</a></iframe>
+                <div class="captcha-checkbox">
+                    
+                </div>
+                <div class="g-recaptcha" data-sitekey="your-site-key">
+                    <iframe frameborder="0" src="https://itch.io/embed-upload/12179708?color=333333" allowfullscreen="" width="300" height="190"></iframe>
+                </div>
+                <input type="checkbox" id="captcha-check" disabled>
+                <label for="captcha-check">Je <s> ne</s> suis <s>pas</s> un robot</label>
+                <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" class="captcha-logo">
             </div>
             <a href="#" class="btn">Soumettre</a>
         </div>
