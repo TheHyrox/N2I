@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
 class AccueilController extends Controller
 {
-    public function index()
+    /**
+     * Show the application welcome page.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function accueil()
     {
-        return view('accueil');
+        return view('accueil'); // Adjust the view name as needed
     }
 }
