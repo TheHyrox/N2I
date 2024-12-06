@@ -219,11 +219,17 @@
                 <label for="captcha-check">Je <s> ne</s> suis <s>pas</s> un robot</label>
                 <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" class="captcha-logo" style="width: 24px; height: 24px;">
             </div>
-            <a href="{{ url('/show-image') }}" class="btn">Soumettre</a>
+            <a href="{{ url('/show-image') }}" class="btn" disabled>Soumettre</a>
         </div>
     </section>
 
     @include('pied_page')
 
+    <script>
+        function captchaVerified() {
+            document.getElementById('submit-btn').disabled = false;
+        }
+    </script>
+    
 </body>
 </html>
