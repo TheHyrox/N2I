@@ -2,7 +2,7 @@
 <header>
     <nav>
         <div class="logo">
-            <h1>MonSiteWeb</h1>
+            <h1>Notaname</h1>
         </div>
         <ul class="nav-links">
             <li><a href="{{ route('accueil') }}">Accueil</a></li>
