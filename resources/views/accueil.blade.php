@@ -91,7 +91,7 @@
 
         .btn {
             display: inline-block;
-            background-color: #7f0e98;
+            background-color: var(--orange);
             color: #fff;
             padding: 10px 30px;
             font-size: 18px;
@@ -178,7 +178,7 @@
     <!-- Section d'accueil -->
     <section id="accueil">
         <div class="hero">
-            <h2>Lorem Ipsum Dolor GROSSE BITE Sit Amet</h2>
+            <h2>Et si l'océan était un corps Humain ?</h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor.
                 Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet.
@@ -192,9 +192,8 @@
         <!-- Section 1 -->
     <section id="section1" class="section">
         <div class="container">
-            <h2>"Poumon de la Terre"</h2>
-            <p>
-                Les océans produisent plus de 50 % de l’oxygène que nous respirons, régulent le climat et abritent une biodiversité inestimable. Leur préservation est essentielle à la vie sur Terre.
+            <h2>"Les poumons de la Terre"</h2>
+            <p>Si l’océan était un corps humain, il serait ses poumons : il produit plus de 50 % de l’oxygène que nous respirons. Mais ces poumons sont en danger, étouffés par la pollution et surchargés de CO2. Leur préservation est indispensable à la vie sur Terre, tout comme la santé de nos propres organes.
             </p>
         </div>
     </section>
@@ -202,9 +201,9 @@
     <!-- Section 2 -->
     <section id="section2" class="section">
         <div class="container">
-            <h2>"Une mer de déchets"</h2>
+            <h2>"Un estomac empoisonné"</h2>
             <p>
-                Chaque année, des millions de tonnes de plastique sont déversées dans les océans, formant des gyres immenses et mettant en danger les écosystèmes marins.
+            Chaque jour, l’océan, comme un estomac, digère ce que l’humanité lui déverse. Malheureusement, ce sont souvent des déchets plastiques, des millions de tonnes chaque année, qui s’y accumulent, créant des "gyres" de déchets et empoisonnant les créatures marines. Cet estomac malade reflète l’impact de nos excès.
             </p>
         </div>
     </section>
@@ -212,9 +211,9 @@
     <!-- Section 3 -->
     <section id="section3" class="section">
         <div class="container">
-            <h2>"Un océan vide"</h2>
+            <h2>"Un squelette fragilisé"</h2>
             <p>
-                L'exploitation excessive des ressources marines entraîne l’effondrement des populations de poissons et perturbe les chaînes alimentaires, menaçant la sécurité alimentaire mondiale.
+            Les récifs coralliens et les mangroves forment la colonne vertébrale de l’océan. Ces structures soutiennent une biodiversité immense et protègent les côtes. Mais la destruction massive de ces habitats érode cette charpente essentielle, menaçant tout l’équilibre océanique.
             </p>
         </div>
     </section>
@@ -222,9 +221,9 @@
     <!-- Section 4 -->
     <section id="section4" class="section">
         <div class="container">
-            <h2>"Des eaux corrosives"</h2>
+            <h2>"Un cœur affaibli"</h2>
             <p>
-                Les océans absorbent une grande partie du CO2 émis par les activités humaines, ce qui les rend plus acides. Ce phénomène déstabilise les coraux, coquillages et d’autres espèces sensibles.
+            L’océan est le cœur battant de la planète, régulant le climat et les courants. Mais la surpêche et l’exploitation intensive perturbent ce rythme naturel, comme un cœur stressé, incapable de nourrir les populations marines et humaines qui en dépendent.
             </p>
         </div>
     </section>
@@ -232,9 +231,20 @@
     <!-- Section 5 -->
     <section id="section5" class="section">
         <div class="container">
-            <h2>"Le point de non-retour"</h2>
+            <h2>"Un sang corrosif"</h2>
             <p>
-                La destruction des habitats marins, comme les récifs coralliens et les mangroves, menace l’équilibre des océans. Si ces écosystèmes disparaissent, les océans pourraient ne jamais s’en remettre.
+            En absorbant une grande partie du CO2 émis par les activités humaines, l’océan devient plus acide, comme un sang qui s’intoxique. Cette acidification affaiblit les coquillages, les coraux, et d’innombrables autres espèces, perturbant tout l’écosystème marin.
+            </p>
+        </div>
+    </section>
+    </div>
+
+    <!-- Section 6 -->
+    <section id="section6" class="section">
+        <div class="container">
+            <h2>"À l’aube d’un coma"</h2>
+            <p>
+            Si nous continuons à maltraiter cet immense corps qu’est l’océan, nous risquons de l’amener à un point de non-retour, un état comateux dont il ne pourra peut-être jamais se relever. Chaque action compte pour sauver ce géant fragile et vital.
             </p>
         </div>
     </section>
