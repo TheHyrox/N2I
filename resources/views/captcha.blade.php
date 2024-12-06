@@ -20,7 +20,7 @@
             font-family: 'Lexend', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: orange;
+            background-color: var(--lightblue);
         }
 
         a {
@@ -104,9 +104,6 @@
         }
 
         /* Sections Générales */
-        section {
-            padding: 60px 20px;
-        }
 
         .container {
             max-width: 1100px;
@@ -115,7 +112,6 @@
 
         section h2 {
             text-align: center;
-            margin-bottom: 40px;
             font-size: 36px;
         }
 
@@ -173,7 +169,7 @@
             display: inline-block;
             background-color: #fff;
             text-align: left;
-            width: 800px;
+            width: 700px;
             position: relative;
         }
 
@@ -217,7 +213,7 @@
                     
                 </div>
                 <div class="g-recaptcha" data-sitekey="your-site-key">
-                    <iframe frameborder="0" src="https://itch.io/embed-upload/12179708?color=333333" allowfullscreen="" width="800" height="500"></iframe>
+                    <iframe frameborder="0" src="https://itch.io/embed-upload/12179708?color=333333" allowfullscreen="" width="700" height="400"></iframe>
                 </div>
                 <input type="checkbox" id="captcha-check" disabled>
                 <label for="captcha-check">Je <s> ne</s> suis <s>pas</s> un robot</label>

@@ -8,7 +8,8 @@
             <li><a href="{{ route('accueil') }}">Accueil</a></li>
             <li><a href="{{ route('solutions') }}">Nos solutions</a></li>
             <li><a href="{{ route('captcha') }}">Captcha</a></li>
-            <li><a href="{{ route('email_input') }}">Inscription facile</a></li>
+            <li><a href="{{ route('email_input') }}">Email chiant</a></li>
+            <li><a href="{{ route('panel') }}">Panel</a></li>
         </ul>
     </nav>
 </header>

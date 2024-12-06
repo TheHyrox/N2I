@@ -38,6 +38,10 @@ Route::get('/captcha', [CaptchaController::class, 'index'])->name('captcha');
 
 Route::get('/email_input', [Email_inputController::class, 'index'])->name('email_input');
 
+//routes panel
+
+Route::get('/panel', 'App\Http\Controllers\PanelController@index')->name('panel');
+
 Route::get('/show-image', function () {
     return view('show-image');
 });

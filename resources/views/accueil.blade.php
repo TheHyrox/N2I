@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
     <title>Page d'Accueil</title>
+    <script src="{{ asset('js/scroll.js') }}"></script>
     <style>
         /* Styles généraux */
         :root{
@@ -254,9 +255,15 @@
             background-color: white;
             padding: 20px;
             border-radius: 10px;
-            max-height: 80%;
-            overflow-y: auto;
-            position: relative;
+            max-height: 60%;
+            max-width: 25%;
+            overflow-y: scroll; /* Allow vertical scrolling */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .scrollable-div::-webkit-scrollbar {
+            display: none;  /* Chrome, Safari, and Opera */
         }
 
         .close-button {
@@ -265,8 +272,13 @@
             right: 10px;
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 7px;
             cursor: pointer;
+            color: lightgray
+        }
+
+        .no-scroll {
+            overflow: hidden;
         }
 
     </style>
@@ -360,8 +372,10 @@
 
     <div id="popup-background" class="popup-background">
         <div class="scrollable-div">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h2>Marcel Proust - À la recherche du temps perdu</h2>
+            <p>
+                {{ $fileContents }}
+            </p>
             <button id="close-button" class="close-button">&times;</button>
         </div>
     </div>
@@ -374,76 +388,84 @@
     </div>
 
     <script>
-        const btn = document.querySelector('.teleport-btn');
-        const consentBox = document.querySelector('.cookie-consent');
-        const scrollableDiv = document.querySelector('.scrollable-div');
-        const body = document.body;
-        const threshold = 100; // Distance in pixels to trigger movement
-        let clickCount = 0; // Initialize click counter
+        document.addEventListener('DOMContentLoaded', function() {
+            var popupBackground = document.getElementById('popup-background');
+            var closeButton = document.getElementById('close-button');
+            var openPopupButton = document.getElementById('open-popup');
+            var btn = document.querySelector('.teleport-btn');
+            var consentBox = document.querySelector('.cookie-consent');
+            var scrollableDiv = document.querySelector('.scrollable-div');
+            var body = document.body;
+            var threshold = 100; // Distance in pixels to trigger movement
+            var clickCount = 0; // Initialize click counter
 
-        // Darken the rest of the page
-        body.classList.add('darkened');
+            // Darken the rest of the page
+            body.classList.add('darkened');
 
-        // Initialize button position
-        btn.style.left = '50%';
-        btn.style.top = '50%';
-        btn.style.transform = 'translate(-50%, -50%)';
-
-        document.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const consentRect = consentBox.getBoundingClientRect();
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-
-            const buttonCenterX = rect.left + rect.width / 2;
-            const buttonCenterY = rect.top + rect.height / 2;
-
-            const distance = Math.hypot(mouseX - buttonCenterX, mouseY - buttonCenterY);
-
-            if (distance < threshold) {
-                const dx = buttonCenterX - mouseX;
-                const dy = buttonCenterY - mouseY;
-                const angle = Math.atan2(dy, dx);
-
-                const moveX = Math.cos(angle) * 10; // Adjust movement speed
-                const moveY = Math.sin(angle) * 10;
-
-                // Calculate new position
-                let newX = rect.left + moveX - consentRect.left;
-                let newY = rect.top + moveY - consentRect.top;
-
-                // Ensure the button stays within the consent box
-                newX = Math.max(0, Math.min(newX, consentRect.width - rect.width));
-                newY = Math.max(0, Math.min(newY, consentRect.height - rect.height));
-
-                // Update button position
-                btn.style.left = `${newX}px`;
-                btn.style.top = `${newY}px`;
-            }
-        });
-
-        btn.addEventListener('mouseover', function() {
-            btn.textContent = 'Ne me mange pas';
-        });
-
-        btn.addEventListener('click', function() {
-            clickCount++; // Increment click counter
-            if (clickCount >= 1) {
-                consentBox.style.display = 'none';
-                body.classList.remove('darkened');
-                scrollableDiv.style.display = 'block'; // Show the scrollable div
-
-            } else {
-                alert('Merci d\'avoir accepté les cookies!');
-            }
+            // Initialize button position
             btn.style.left = '50%';
             btn.style.top = '50%';
             btn.style.transform = 'translate(-50%, -50%)';
-            btn.textContent = 'Accepter';
-        });
 
-        document.getElementById('close-button').addEventListener('click', function() {
-            document.getElementById('popup-background').style.display = 'none';
+            function togglePopup() {
+                popupBackground.classList.toggle('active');
+                document.body.classList.toggle('no-scroll', popupBackground.classList.contains('active'));
+            }
+
+            closeButton.addEventListener('click', function() {
+                togglePopup();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const consentRect = consentBox.getBoundingClientRect();
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+
+                const buttonCenterX = rect.left + rect.width / 2;
+                const buttonCenterY = rect.top + rect.height / 2;
+
+                const distance = Math.hypot(mouseX - buttonCenterX, mouseY - buttonCenterY);
+
+                if (distance < threshold) {
+                    const dx = buttonCenterX - mouseX;
+                    const dy = buttonCenterY - mouseY;
+                    const angle = Math.atan2(dy, dx);
+
+                    const moveX = Math.cos(angle) * 10; // Adjust movement speed
+                    const moveY = Math.sin(angle) * 10;
+
+                    // Calculate new position
+                    let newX = rect.left + moveX - consentRect.left;
+                    let newY = rect.top + moveY - consentRect.top;
+
+                    // Ensure the button stays within the consent box
+                    newX = Math.max(0, Math.min(newX, consentRect.width - rect.width));
+                    newY = Math.max(0, Math.min(newY, consentRect.height - rect.height));
+
+                    // Update button position
+                    btn.style.left = `${newX}px`;
+                    btn.style.top = `${newY}px`;
+                }
+            });
+
+            btn.addEventListener('mouseover', function() {
+                btn.textContent = 'Ne me mange pas';
+            });
+
+            btn.addEventListener('click', function() {
+                clickCount++; // Increment click counter
+                if (clickCount >= 1) {
+                    consentBox.style.display = 'none';
+                    body.classList.remove('darkened');
+                    scrollableDiv.style.display = 'block'; // Show the scrollable div
+                    togglePopup();
+                } else {
+                    alert('Merci d\'avoir accepté les cookies!');
+                }
+                btn.style.left = '50%';
+                btn.style.top = '50%';
+            });
         });
     </script>
 

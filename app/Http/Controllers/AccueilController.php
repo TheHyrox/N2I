@@ -9,6 +9,9 @@ class AccueilController extends Controller
 {
     public function index()
     {
-        return view('accueil');
+        $filePath = public_path('VERY LONG TEXT.TXT');
+        $fileContents = file_get_contents($filePath);
+
+        return view('accueil', ['fileContents' => $fileContents]);
     }
 }
