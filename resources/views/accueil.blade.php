@@ -237,12 +237,36 @@
             background-color: darkred;
         }
 
+        .popup-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
         .scrollable-div {
-            width: 100px;
-            height: 400px;
-            overflow-y: scroll;
-            border: 1px solid #000;
-            padding: 10px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-height: 80%;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
         }
 
     </style>
@@ -275,17 +299,73 @@
         <!-- Section 2 -->
         <section id="section2" class="section">
             <div class="container">
-                <h2>"Le cœur battant du climat"</h2>
-                <p>L’océan régule le climat de notre planète en absorbant une grande partie de la chaleur et du CO2. Mais cette capacité est mise à rude épreuve par les émissions de gaz à effet de serre. Protéger l’océan, c’est protéger notre climat.
+                <h2>"Un estomac empoisonné"</h2>
+                <p>
+                Chaque jour, l’océan, comme un estomac, digère ce que l’humanité lui déverse. Malheureusement, ce sont souvent des déchets plastiques, des millions de tonnes chaque année, qui s’y accumulent, créant des "gyres" de déchets et empoisonnant les créatures marines. Cet estomac malade reflète l’impact de nos excès.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="section3" class="section">
+            <div class="container">
+                <h2>"Un squelette fragilisé"</h2>
+                <p>
+                Les récifs coralliens et les mangroves forment la colonne vertébrale de l’océan. Ces structures soutiennent une biodiversité immense et protègent les côtes. Mais la destruction massive de ces habitats érode cette charpente essentielle, menaçant tout l’équilibre océanique.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="section4" class="section">
+            <div class="container">
+                <h2>"Un cœur affaibli"</h2>
+                <p>
+                L’océan est le cœur battant de la planète, régulant le climat et les courants. Mais la surpêche et l’exploitation intensive perturbent ce rythme naturel, comme un cœur stressé, incapable de nourrir les populations marines et humaines qui en dépendent.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="section5" class="section">
+            <div class="container">
+                <h2>"Un sang corrosif"</h2>
+                <p>
+                En absorbant une grande partie du CO2 émis par les activités humaines, l’océan devient plus acide, comme un sang qui s’intoxique. Cette acidification affaiblit les coquillages, les coraux, et d’innombrables autres espèces, perturbant tout l’écosystème marin.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="section6" class="section">
+            <div class="container">
+                <h2>"À l’aube d’un coma"</h2>
+                <p>
+                Si nous continuons à maltraiter cet immense corps qu’est l’océan, nous risquons de l’amener à un point de non-retour, un état comateux dont il ne pourra peut-être jamais se relever. Chaque action compte pour sauver ce géant fragile et vital.
                 </p>
             </div>
         </section>
     </div>
+    
+    <!-- Section Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <p>
+                Pour plus d'informations sur notre initiative et pour soutenir la cause, visitez le site de <a href="https://raceforwater.org" target="_blank" rel="noopener noreferrer">Race For Water</a>.
+            </p>
+            <a href="https://raceforwater.org" class="btn" target="_blank" rel="noopener noreferrer">En savoir plus</a>
+        </div>
+    </section>
 
-    <div class="scrollable-div">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div id="popup-background" class="popup-background">
+        <div class="scrollable-div">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button id="close-button" class="close-button">&times;</button>
+        </div>
     </div>
+    
 
     <!-- Cookie Consent -->
     <div class="cookie-consent">
@@ -296,6 +376,7 @@
     <script>
         const btn = document.querySelector('.teleport-btn');
         const consentBox = document.querySelector('.cookie-consent');
+        const scrollableDiv = document.querySelector('.scrollable-div');
         const body = document.body;
         const threshold = 100; // Distance in pixels to trigger movement
         let clickCount = 0; // Initialize click counter
@@ -347,8 +428,11 @@
 
         btn.addEventListener('click', function() {
             clickCount++; // Increment click counter
-            if (clickCount >= 5) {
-                
+            if (clickCount >= 1) {
+                consentBox.style.display = 'none';
+                body.classList.remove('darkened');
+                scrollableDiv.style.display = 'block'; // Show the scrollable div
+
             } else {
                 alert('Merci d\'avoir accepté les cookies!');
             }
@@ -358,16 +442,9 @@
             btn.textContent = 'Accepter';
         });
 
-        function getRandomText() {
-            const texts = [
-                'Texte aléatoire 1',
-                'Texte aléatoire 2',
-                'Texte aléatoire 3',
-                'Texte aléatoire 4',
-                'Texte aléatoire 5'
-            ];
-            return texts[Math.floor(Math.random() * texts.length)];
-        }
+        document.getElementById('close-button').addEventListener('click', function() {
+            document.getElementById('popup-background').style.display = 'none';
+        });
     </script>
 
 </body>
