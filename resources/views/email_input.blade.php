@@ -16,13 +16,14 @@
             margin: 0;
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: var(--orange);
+            color: #fff;
+            background-color: var(--lightblue);
         }
         #emailInput {
             font-size: 20px;
             width: 250px;
             position: absolute;
+            font-family: Lexend, sans-serif;
             top: 20%;
             left: 50%;
             transform: translateX(-50%);
@@ -87,7 +88,7 @@
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background-color: var(--lightblue);
+            background-color: var(--darkblue);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -105,8 +106,9 @@
         }
         button {
             display: inline-block;
-            background-color: #7f0e98;
+            background-color: #f27438;
             color: #fff;
+            font-family: Lexend, sans-serif;
             padding: 10px 30px;
             font-size: 18px;
             border-radius: 5px;
@@ -119,8 +121,9 @@
         .rules {
             max-width: 600px;
             margin: 20px auto;
+            font-family: Lexend, sans-serif;
             padding: 20px;
-            background-color: var(--lightblue);
+            background-color: var(--darkblue);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -140,18 +143,18 @@
 <body>
 @include('navigation')
 <form>
-    <label for="emailInput">Enter your email:</label>
+    <label for="emailInput">Entrez votre email</label>
     <input type="text" id="emailInput" oninput="handleInput(event)" placeholder="username@domain.com" />
-    <button type="submit">Submit</button>
+    <button type="submit">Envoyer</button>
 </form>
 
 <div class="rules">
-    <p>Rules:</p>
+    <p>Règles :</p>
     <ul>
-        <li>Start with a letter</li>
-        <li>Alternate between letters and digits (no two digits together)</li>
-        <li>Allowed characters: all characters, including @, .</li>
-        <li>Ensure the correct format (example: username@domain.com)</li>
+        <li>Commencez par une lettre</li>
+        <li>Alternez entre lettres et chiffres (pas deux chiffres ensemble)</li>
+        <li>Caractères autorisés : tous les caractères, y compris @, .</li>
+        <li>Assurez-vous du format correct (exemple : username@domain.com)</li>
     </ul>
 </div>
 
