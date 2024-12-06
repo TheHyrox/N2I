@@ -152,80 +152,93 @@
         .rules li {
             margin-bottom: 10px;
         }
+
+        #emailInput {
+            color: #e1e1e1;
+            font-size: 20px;
+            width: 40px;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
 @include('navigation')
-<form>
-    <label for="emailInput">Enter your email:</label>
-    <input type="text" id="emailInput" oninput="handleInput(event)" placeholder="username@domain.com" />
-    <button type="submit">Submit</button>
-</form>
-
-<div class="rules">
-    <p>Rules:</p>
-    <ul>
-        <li>Start with a letter</li>
-        <li>Alternate between letters and digits (no two digits together)</li>
-        <li>Allowed characters: all characters, including @, .</li>
-        <li>Ensure the correct format (example: username@domain.com)</li>
-    </ul>
-</div>
+<h2>Enter your email address:</h2>
+<!-- Désactivation de l'autocomplétion -->
+<input type="text" id="emailInput" oninput="checkEmail(event)" placeholder="" autocomplete="off">
+<div class="timer" id="timer">Time left: 10 seconds</div>
 
 <script>
-    const emailInput = document.getElementById('emailInput');
-    const rules = [
-        { charType: 'letter', isUpperCase: false },
-        { charType: 'digit' },
-        { charType: 'letter', isUpperCase: true },
-        { charType: 'digit' }
-    ];
-    let currentCharIndex = 0;
+    let timeLeft = 10; // 10 secondes chrono
+    let timer = document.getElementById('timer');
+    let emailInput = document.getElementById('emailInput');
 
-    function handleInput(event) {
-        const inputValue = event.target.value;
+    // Démarre un compte à rebours
+    let countdown = setInterval(function() {
+        timeLeft--;
+        timer.textContent = 'Time left: ' + timeLeft + ' seconds';
 
-        // Ignore Backspace or Delete key for error handling
-        if (event.inputType === 'deleteContentBackward' || event.inputType === 'deleteContentForward') {
-            return;
+        if (timeLeft <= 0) {
+            location.reload()
+        }
+    }, 1000);
+
+    // Fonction de validation de l'email
+    function checkEmail(event) {
+        let email = event.target.value;
+
+        // Si le champ est vide ou contient une erreur, il secoue
+        if (email === '') {
+            emailInput.classList.add('waiting');
+        } else {
+            emailInput.classList.remove('waiting');
         }
 
-        // Validate input based on the current rule
-        if (currentCharIndex < rules.length) {
-            const currentRule = rules[currentCharIndex];
-
-            if (currentRule.charType === 'letter' && !isLetter(inputValue.slice(-1), currentRule.isUpperCase)) {
-                triggerError();
-            } else if (currentRule.charType === 'digit' && !isDigit(inputValue.slice(-1))) {
-                triggerError();
-            } else {
-                // No error, move to the next rule
-                currentCharIndex++;
-            }
+        // Vérification simple du format (vous pouvez l'améliorer)
+        let emailFormat = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailFormat.test(email)) {
+            emailInput.classList.add('invalid');
+        } else {
+            emailInput.classList.remove('invalid');
         }
     }
 
-    // Function to check if a character is a letter (with case check)
-    function isLetter(char, isUpperCase) {
-        const letterRegex = isUpperCase ? /^[A-Z]$/ : /^[a-zA-Z]$/;
-        return letterRegex.test(char);
-    }
+    // Supprime la ligne entière si "Suppr" ou "Retour" est pressé
+    emailInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Backspace' || event.key === 'Delete') {
+            emailInput.value = ''; // Efface la ligne entière
+        } else {
+            // Créer un délai aléatoire entre 0 et 1 seconde (1000 ms)
+            let delay = Math.random() * 1000;
 
-    // Function to check if a character is a digit
-    function isDigit(char) {
-        return /^\d$/.test(char);
-    }
+            // Empêche le comportement par défaut (ajout immédiat du caractère)
+            event.preventDefault();
 
-    // Trigger error and remove a random number of characters
-    function triggerError() {
-        emailInput.classList.add('shake');
-        setTimeout(() => emailInput.classList.remove('shake'), 300);
+            // Applique le délai avant d'ajouter le caractère à l'input
+            setTimeout(function() {
+                emailInput.value += event.key;
+                checkEmail(event);
+            }, delay);
+        }
+    });
 
-        // Remove a random number of characters (1 to 5 characters)
-        const randomLength = Math.floor(Math.random() * 5) + 1;
-        emailInput.value = emailInput.value.slice(0, -randomLength);
-        currentCharIndex = 0; // Reset to start validation again
-    }
+    // Interdit le copier-coller
+    emailInput.addEventListener('copy', function(event) {
+        event.preventDefault();
+    });
+
+    emailInput.addEventListener('cut', function(event) {
+        event.preventDefault();
+    });
+
+    emailInput.addEventListener('paste', function(event) {
+        event.preventDefault();
+    });
 </script>
 @include('pied_page')
 </body>
