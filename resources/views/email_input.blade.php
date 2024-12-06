@@ -12,86 +12,43 @@
             color: #333;
             background-color: var(--orange);
         }
-
-        #emailInput {
-            font-size: 20px;
-            width: 250px;
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .waiting {
-            border: 2px solid red;
-        }
-
-        .shake {
-            animation: shake 0.3s;
-            animation-iteration-count: 3;
-        }
-
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
-        }
-
-        .invalid {
-            border: 2px solid red;
-        }
-
         a {
             text-decoration: none;
             color: inherit;
         }
-
         h1, h2, h3 {
             margin-bottom: 10px;
         }
-
         p {
             margin-bottom: 20px;
         }
-
         header {
             background-color: var(--darkblue);
             color: #fff;
         }
-
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
         }
-
         .logo h1 {
             margin: 0;
         }
-
         .nav-links {
             list-style: none;
             display: flex;
         }
-
         .nav-links li {
             margin-left: 20px;
         }
-
         .nav-links a {
             color: #fff;
             font-weight: bold;
         }
-
         .nav-links a:hover {
             color: var(--orange);
         }
-
         form {
             max-width: 600px;
             margin: 50px auto;
@@ -100,13 +57,11 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
         label {
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
         }
-
         input[type="text"] {
             width: 100%;
             padding: 10px;
@@ -114,7 +69,6 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-
         button {
             display: inline-block;
             background-color: #7f0e98;
@@ -125,11 +79,9 @@
             border: none;
             cursor: pointer;
         }
-
         button:hover {
             background-color: #e65c00;
         }
-
         .rules {
             max-width: 600px;
             margin: 20px auto;
@@ -138,31 +90,25 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
         .rules p {
             font-size: 18px;
             font-weight: bold;
         }
-
         .rules ul {
             list-style: none;
             padding: 0;
         }
-
         .rules li {
             margin-bottom: 10px;
         }
-
-        #emailInput {
-            color: #e1e1e1;
-            font-size: 20px;
-            width: 40px;
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 8px;
-            transition: all 0.3s ease;
+        footer {
+            background-color: var(--darkblue);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
@@ -177,28 +123,23 @@
     let timeLeft = 10; // 10 secondes chrono
     let timer = document.getElementById('timer');
     let emailInput = document.getElementById('emailInput');
-
     // Démarre un compte à rebours
     let countdown = setInterval(function() {
         timeLeft--;
         timer.textContent = 'Time left: ' + timeLeft + ' seconds';
-
         if (timeLeft <= 0) {
             location.reload()
         }
     }, 1000);
-
     // Fonction de validation de l'email
     function checkEmail(event) {
         let email = event.target.value;
-
         // Si le champ est vide ou contient une erreur, il secoue
         if (email === '') {
             emailInput.classList.add('waiting');
         } else {
             emailInput.classList.remove('waiting');
         }
-
         // Vérification simple du format (vous pouvez l'améliorer)
         let emailFormat = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailFormat.test(email)) {
@@ -207,7 +148,6 @@
             emailInput.classList.remove('invalid');
         }
     }
-
     // Supprime la ligne entière si "Suppr" ou "Retour" est pressé
     emailInput.addEventListener('keydown', function(event) {
         if (event.key === 'Backspace' || event.key === 'Delete') {
@@ -215,10 +155,8 @@
         } else {
             // Créer un délai aléatoire entre 0 et 1 seconde (1000 ms)
             let delay = Math.random() * 1000;
-
             // Empêche le comportement par défaut (ajout immédiat du caractère)
             event.preventDefault();
-
             // Applique le délai avant d'ajouter le caractère à l'input
             setTimeout(function() {
                 emailInput.value += event.key;
@@ -226,16 +164,13 @@
             }, delay);
         }
     });
-
     // Interdit le copier-coller
     emailInput.addEventListener('copy', function(event) {
         event.preventDefault();
     });
-
     emailInput.addEventListener('cut', function(event) {
         event.preventDefault();
     });
-
     emailInput.addEventListener('paste', function(event) {
         event.preventDefault();
     });
