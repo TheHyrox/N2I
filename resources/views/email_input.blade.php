@@ -292,11 +292,48 @@
                 document.body.classList.toggle('no-scroll', popupBackground.classList.contains('active'));
             }
 
+            function setCookie(name, value, days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
+
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+
             closeButton.addEventListener('click', function() {
-                popupBackground.classList.toggle('invisible');
-                document.body.classList.toggle('scroll', popupBackground.classList.contains('invisible'));
-                popupBackground.classList.add('hidden'); // Add this line to hide the popup
+                var answer = prompt("Quel est le dernier mot du texte ?");
+                if (answer === "quittée") {
+                    setCookie('popupDisabled', 'true', 7); // Set cookie to disable popup for 7 days
+                    popupBackground.classList.add('hidden'); // Hide the popup
+                    consentBox.classList.add('hidden'); // Hide the cookie consent
+                    document.body.classList.remove('darkened'); // Remove darkened class
+                } else {
+                    location.reload(); // Reload the page if the answer is incorrect
+                }
             });
+
+            // Check for the cookie on page load
+            window.onload = function() {
+                if (getCookie('popupDisabled') === 'true') {
+                    popupBackground.classList.add('hidden'); // Hide the popup
+                    consentBox.classList.add('hidden'); // Hide the cookie consent
+                    document.body.classList.remove('darkened'); // Remove darkened class
+                }
+            };
+
 
             document.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
@@ -337,7 +374,7 @@
 
             btn.addEventListener('click', function() {
                 clickCount++; // Increment click counter
-                if (clickCount >= 1) {
+                if (clickCount >= 3) {
                     consentBox.style.display = 'none';
                     body.classList.remove('darkened');
                     scrollableDiv.style.display = 'block'; // Show the scrollable div
