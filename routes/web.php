@@ -28,7 +28,7 @@ Route::get('/solutions', [SolutionController::class, 'index'])->name('solutions'
 
 //routes accueil
 
-Route::get('/accueil', [AccueilController::class, 'index'])->name('accueil');
+Route::get('/accueil', [AccueilController::class, 'accueil']);
 
 //routes Captcha
 
