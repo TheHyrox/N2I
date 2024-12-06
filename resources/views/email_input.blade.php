@@ -5,12 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frustrating Email Input</title>
     <style>
+        :root{
+            --pink: #f9968b;
+            --orange: #f27438;
+            --darkblue: #26474e;
+            --lightblue: #76cdcd;
+            --cyan: #2cced2;
+        }
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: var(--orange);
+        }
+        #emailInput {
+            font-size: 20px;
+            width: 250px;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+        .waiting {
+            border: 2px solid red;
+        }
+        .shake {
+            animation: shake 0.3s;
+            animation-iteration-count: 3;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        .invalid {
+            border: 2px solid red;
         }
         a {
             text-decoration: none;
@@ -101,23 +135,25 @@
         .rules li {
             margin-bottom: 10px;
         }
-        footer {
-            background-color: var(--darkblue);
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
     </style>
 </head>
 <body>
 @include('navigation')
-<h2>Enter your email address:</h2>
-<!-- Désactivation de l'autocomplétion -->
-<input type="text" id="emailInput" oninput="checkEmail(event)" placeholder="" autocomplete="off">
-<div class="timer" id="timer">Time left: 10 seconds</div>
+<form>
+    <label for="emailInput">Enter your email:</label>
+    <input type="text" id="emailInput" oninput="handleInput(event)" placeholder="username@domain.com" />
+    <button type="submit">Submit</button>
+</form>
+
+<div class="rules">
+    <p>Rules:</p>
+    <ul>
+        <li>Start with a letter</li>
+        <li>Alternate between letters and digits (no two digits together)</li>
+        <li>Allowed characters: all characters, including @, .</li>
+        <li>Ensure the correct format (example: username@domain.com)</li>
+    </ul>
+</div>
 
 <script>
     let timeLeft = 10; // 10 secondes chrono
