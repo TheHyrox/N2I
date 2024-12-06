@@ -172,7 +172,7 @@
             display: inline-block;
             background-color: #fff;
             text-align: left;
-            width: 300px;
+            width: 800px;
             position: relative;
         }
 
@@ -216,7 +216,7 @@
                     
                 </div>
                 <div class="g-recaptcha" data-sitekey="your-site-key">
-                    <iframe frameborder="0" src="https://itch.io/embed-upload/12179708?color=333333" allowfullscreen="" width="300" height="190"></iframe>
+                    <iframe frameborder="0" src="https://itch.io/embed-upload/12179708?color=333333" allowfullscreen="" width="800" height="500"></iframe>
                 </div>
                 <input type="checkbox" id="captcha-check" disabled>
                 <label for="captcha-check">Je <s> ne</s> suis <s>pas</s> un robot</label>
