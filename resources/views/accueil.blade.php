@@ -112,6 +112,12 @@
             margin: 0 auto;
         }
 
+        .container .btn {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         section h2 {
             text-align: center;
             margin-bottom: 40px;
@@ -180,9 +186,7 @@
         <div class="hero">
             <h2>Et si l'océan était un corps Humain ?</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor.
-                Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet.
-                Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac.
+            Poumons de la Terre, cœur battant du climat, et squelette de biodiversité, l’océan est vital pour notre survie. Pourtant, il souffre : étouffé par la pollution, affaibli par l’acidification et menacé par la surpêche. Race For Water invite à agir avant qu’il n’atteigne un point de non-retour. Prenons soin de l’océan, notre plus grand allié pour l’avenir.
             </p>
             <a href="#" class="btn">En savoir plus</a>
         </div>
@@ -252,15 +256,16 @@
     
     <!-- Section Contact -->
     <section id="contact">
-        <div class="container">
-            <h2>Contactez-nous</h2>
-            <p>
-                Pour plus d'informations, n'hésitez pas à nous contacter. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
-            </p>
-            <a href="#" class="btn">Contact</a>
-        </div>
+    <div class="container">
+        <h2>Contactez-nous</h2>
+        <p>
+            Pour plus d'informations sur notre initiative et pour soutenir la cause, visitez le site de <a href="https://raceforwater.org" target="_blank" rel="noopener noreferrer">Race For Water</a>.
+        </p>
+        <a href="https://raceforwater.org" class="btn" target="_blank" rel="noopener noreferrer">En savoir plus</a>
+    </div>
     </section>
+
+
 
     @include('pied_page')
     <script src="{{ asset('js/scroll.js') }}"></script>
