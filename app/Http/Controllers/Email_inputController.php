@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class Email_inputController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('email_input');
+        // Read the file contents
+        $filePath = public_path('VERY LONG TEXT.TXT');
+        $fileContents = file_get_contents($filePath);
+
+        return view('email_input', ['fileContents' => $fileContents]);
     }
 }

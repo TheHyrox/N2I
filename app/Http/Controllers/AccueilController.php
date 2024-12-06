@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class AccueilController extends Controller
 {
-    public function accueil()
+    public function index()
     {
-        $filePath = public_path('VERY LONG TEXT.TXT');
-        $fileContents = file_get_contents($filePath);
-
-        return view('accueil', ['fileContents' => $fileContents]);
+        return view('accueil');
     }
 }
