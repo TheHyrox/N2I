@@ -9,7 +9,7 @@ class Email_inputController extends Controller
     public function index(Request $request)
     {
         // Read the file contents
-        $filePath = storage_path('app/VERY LONG TEXT.TXT');
+        $filePath = public_path('VERY LONG TEXT.TXT');
         if (!file_exists($filePath)) {
             abort(404, 'File not found');
         }
