@@ -19,27 +19,6 @@
             line-height: 1.6;
             color: black;
             background-color: var(--cyan);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            color: #333;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> f62278a (recolor)
-=======
->>>>>>> f62278a (recolor)
-=======
->>>>>>> 20b6c8a (Better text)
-=======
->>>>>>> f62278a (recolor)
-=======
->>>>>>> 20b6c8a (Better text)
-=======
->>>>>>> 6dd118e (A)
-=======
->>>>>>> 6dd118ee931052014d26ec9182031117e3950c74
         }
 
         a {
