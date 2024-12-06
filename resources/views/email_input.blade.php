@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
     <title>Frustrating Email Input</title>
     <style>
         /* Importation des mêmes variables que sur la page d'accueil */
@@ -17,7 +18,7 @@
         /* Styles globaux calqués sur la page d'accueil */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Lexend, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: orange; /* Comme sur l'accueil */

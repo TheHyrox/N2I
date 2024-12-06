@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
     <title>Page d'Accueil</title>
     <style>
         /* Styles généraux */
@@ -15,7 +16,7 @@
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Lexend, sans-serif;
             line-height: 1.6;
             color: black;
             background-color: var(--cyan);
