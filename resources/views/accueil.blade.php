@@ -164,15 +164,17 @@
         .section {
             opacity: 0;
             transform: translateY(50px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, backdrop-filter 0.6s ease-out;
             font-weight: 500;
             margin-bottom: 50vh;
-            background-color: var(--lightblue);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(0px); 
         }
 
         .section.visible {
-            opacity: 0.6;
+            opacity: 1;
             transform: translateY(0);
+            backdrop-filter: blur(50px); 
         }
         
     </style>

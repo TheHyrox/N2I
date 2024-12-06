@@ -8,10 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-            } 
+            } else {
+                const rect = entry.boundingClientRect;
+                if (rect.bottom < 0) {
+                    entry.target.classList.remove('visible');
+                }
+            }
         });
     }, observerOptions);
 
     sections.forEach(section => observer.observe(section));
 });
-
