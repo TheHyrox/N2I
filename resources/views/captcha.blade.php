@@ -4,6 +4,174 @@
     <meta charset="UTF-8">
     <title>Captcha</title>
     <link rel="stylesheet" href="{{ asset('css/captcha.css') }}">
+    <style>
+        /* Styles généraux */
+        :root{
+            --pink: #f9968b;
+            --orange: #f27438;
+            --darkblue: #26474e;
+            --lightblue: #76cdcd;
+            --cyan: #2cced2;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: orange;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        /* En-tête et Navigation */
+        header {
+            background-color: var(--darkblue);
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo h1 {
+            margin: 0;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        /* Section Hero */
+        .hero {
+            background-color: var(--lightblue);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #7f0e98;
+            color: #fff;
+            padding: 10px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #e65c00;
+        }
+
+        /* Sections Générales */
+        section {
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        /* Section Services */
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .service {
+            flex-basis: 30%;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .service h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            font-size: 16px;
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: var(--darkblue);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section Captcha */
+        #captcha {
+            background-color: var(--lightblue);
+            text-align: center;
+        }
+
+        .captcha-placeholder {
+            margin: 20px 0;
+        }
+
+        #captcha .btn {
+            background-color: var(--orange);
+        }
+    </style>
+
 </head>
 <body>
 
