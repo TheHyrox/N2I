@@ -20,6 +20,7 @@
             color: black;
             background-color: var(--cyan);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             color: #333;
 <<<<<<< HEAD
@@ -31,6 +32,8 @@
 >>>>>>> 20b6c8a (Better text)
 =======
 >>>>>>> f62278a (recolor)
+=======
+>>>>>>> 20b6c8a (Better text)
         }
 
         a {
