@@ -1,4 +1,4 @@
 <!-- Pied de page -->
 <footer>
-    <p>&copy; <?php echo date("Y"); ?> MonSiteWeb. Tous droits réservés.</p>
+    <p>&copy; <?php echo date("Y"); ?> Notaname. Tous droits réservés.</p>
 </footer>
