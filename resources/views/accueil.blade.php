@@ -184,7 +184,7 @@
         }
 
         .section {
-            opacity: 100;
+            opacity: 1;
             transform: translateY(50px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out, backdrop-filter 0.6s ease-out;
             font-weight: 500;
