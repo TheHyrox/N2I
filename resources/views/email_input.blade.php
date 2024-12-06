@@ -20,8 +20,8 @@
             margin: 0;
             font-family: Lexend, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: orange; /* Comme sur l'accueil */
+            color: #fff;
+            background-color: var(--lightblue)
         }
 
         a {
@@ -75,8 +75,9 @@
         /* Bouton comme sur l'accueil */
         .btn, button[type="submit"] {
             display: inline-block;
-            background-color: #7f0e98; /* Mêmes couleurs que la page d'accueil */
+            background-color: #F27438; /* Mêmes couleurs que la page d'accueil */
             color: #fff;
+            font-family: Lexend, sans-serif;
             padding: 10px 30px;
             font-size: 18px;
             border-radius: 5px;
@@ -93,7 +94,7 @@
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background-color: var(--lightblue);
+            background-color: var(--darkblue);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -150,7 +151,7 @@
             max-width: 600px;
             margin: 20px auto;
             padding: 20px;
-            background-color: var(--lightblue);
+            background-color: var(--darkblue);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -171,78 +172,84 @@
     </style>
 </head>
 <body>
+
     @include('navigation')
-    <form>
-        <label for="emailInput">Enter your email:</label>
-        <input type="text" id="emailInput" oninput="handleInput(event)" placeholder="username@domain.com" />
-        <button type="submit">Submit</button>
-    </form>
 
-    <div class="rules">
-        <p>Rules:</p>
-        <ul>
-            <li>Start with a letter</li>
-            <li>Alternate between letters and digits (no two digits together)</li>
-            <li>Allowed characters: all characters, including @, .</li>
-            <li>Ensure the correct format (example: username@domain.com)</li>
-        </ul>
-    </div>
+    <section id="email">
+        <form>
+            <label for="emailInput">Enter your email:</label>
+            <input type="text" id="emailInput" oninput="handleInput(event)" placeholder="username@domain.com" />
+            <button type="submit">Submit</button>
+        </form>
 
-    <script>
-        const emailInput = document.getElementById('emailInput');
-        const rules = [
-            { charType: 'letter', isUpperCase: false },
-            { charType: 'digit' },
-            { charType: 'letter', isUpperCase: true },
-            { charType: 'digit' }
-        ];
-        let currentCharIndex = 0;
+        <div class="rules">
+            <p>Rules:</p>
+            <ul>
+                <li>Start with a letter</li>
+                <li>Alternate between letters and digits (no two digits together)</li>
+                <li>Allowed characters: all characters, including @, .</li>
+                <li>Ensure the correct format (example: username@domain.com)</li>
+            </ul>
+        </div>
 
-        function handleInput(event) {
-            const inputValue = event.target.value;
+        <script>
+            const emailInput = document.getElementById('emailInput');
+            const rules = [
+                { charType: 'letter', isUpperCase: false },
+                { charType: 'digit' },
+                { charType: 'letter', isUpperCase: true },
+                { charType: 'digit' }
+            ];
+            let currentCharIndex = 0;
 
-            // Ignore Backspace or Delete key for error handling
-            if (event.inputType === 'deleteContentBackward' || event.inputType === 'deleteContentForward') {
-                return;
-            }
+            function handleInput(event) {
+                const inputValue = event.target.value;
 
-            // Validate input based on the current rule
-            if (currentCharIndex < rules.length) {
-                const currentRule = rules[currentCharIndex];
+                // Ignore Backspace or Delete key for error handling
+                if (event.inputType === 'deleteContentBackward' || event.inputType === 'deleteContentForward') {
+                    return;
+                }
 
-                if (currentRule.charType === 'letter' && !isLetter(inputValue.slice(-1), currentRule.isUpperCase)) {
-                    triggerError();
-                } else if (currentRule.charType === 'digit' && !isDigit(inputValue.slice(-1))) {
-                    triggerError();
-                } else {
-                    // No error, move to the next rule
-                    currentCharIndex++;
+                // Validate input based on the current rule
+                if (currentCharIndex < rules.length) {
+                    const currentRule = rules[currentCharIndex];
+
+                    if (currentRule.charType === 'letter' && !isLetter(inputValue.slice(-1), currentRule.isUpperCase)) {
+                        triggerError();
+                    } else if (currentRule.charType === 'digit' && !isDigit(inputValue.slice(-1))) {
+                        triggerError();
+                    } else {
+                        // No error, move to the next rule
+                        currentCharIndex++;
+                    }
                 }
             }
-        }
 
-        // Function to check if a character is a letter (with case check)
-        function isLetter(char, isUpperCase) {
-            const letterRegex = isUpperCase ? /^[A-Z]$/ : /^[a-zA-Z]$/;
-            return letterRegex.test(char);
-        }
+            // Function to check if a character is a letter (with case check)
+            function isLetter(char, isUpperCase) {
+                const letterRegex = isUpperCase ? /^[A-Z]$/ : /^[a-zA-Z]$/;
+                return letterRegex.test(char);
+            }
 
-        // Function to check if a character is a digit
-        function isDigit(char) {
-            return /^\d$/.test(char);
-        }
+            // Function to check if a character is a digit
+            function isDigit(char) {
+                return /^\d$/.test(char);
+            }
 
-        // Trigger error and remove a random number of characters
-        function triggerError() {
-            emailInput.classList.add('shake');
-            setTimeout(() => emailInput.classList.remove('shake'), 300);
+            // Trigger error and remove a random number of characters
+            function triggerError() {
+                emailInput.classList.add('shake');
+                setTimeout(() => emailInput.classList.remove('shake'), 300);
 
-            // Remove a random number of characters (1 to 5 characters)
-            const randomLength = Math.floor(Math.random() * 5) + 1;
-            emailInput.value = emailInput.value.slice(0, -randomLength);
-            currentCharIndex = 0; // Reset to start validation again
-        }
-    </script>
+                // Remove a random number of characters (1 to 5 characters)
+                const randomLength = Math.floor(Math.random() * 5) + 1;
+                emailInput.value = emailInput.value.slice(0, -randomLength);
+                currentCharIndex = 0; // Reset to start validation again
+            }
+        </script>
+    </section>
+
     @include('pied_page')
+
 </body>
 </html>
