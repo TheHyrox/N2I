@@ -88,12 +88,14 @@
         }
 
         .btn {
-            display: inline-block;
+            display: block;
             background-color: #7f0e98;
             color: #fff;
             padding: 10px 30px;
             font-size: 18px;
             border-radius: 5px;
+            width: 10%;
+            margin: 10px auto; /* Center the button and add top margin */
         }
 
         .btn:hover {
@@ -218,9 +220,9 @@
                 </div>
                 <input type="checkbox" id="captcha-check" disabled>
                 <label for="captcha-check">Je <s> ne</s> suis <s>pas</s> un robot</label>
-                <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" class="captcha-logo">
+                <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" class="captcha-logo" style="width: 24px; height: 24px;">
             </div>
-            <a href="#" class="btn">Soumettre</a>
+            <a href="https://i.imgflip.com/9cskn9.jpg" class="btn">Soumettre</a>
         </div>
     </section>
 
