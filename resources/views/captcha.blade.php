@@ -222,7 +222,7 @@
                 <label for="captcha-check">Je <s> ne</s> suis <s>pas</s> un robot</label>
                 <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" class="captcha-logo" style="width: 24px; height: 24px;">
             </div>
-            <a href="https://i.imgflip.com/9cskn9.jpg" class="btn">Soumettre</a>
+            <a href="{{ url('/show-image') }}" class="btn">Soumettre</a>
         </div>
     </section>
 

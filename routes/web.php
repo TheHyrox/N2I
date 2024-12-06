@@ -37,3 +37,7 @@ Route::get('/captcha', [CaptchaController::class, 'index'])->name('captcha');
 //routes email-chiant
 
 Route::get('/email_input', [Email_inputController::class, 'index'])->name('email_input');
+
+Route::get('/show-image', function () {
+    return view('show-image');
+});
