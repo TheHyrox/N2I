@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Captcha</title>
     <link rel="stylesheet" href="{{ asset('css/captcha.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Styles généraux */
         :root{
@@ -16,7 +17,7 @@
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Lexend', sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: orange;
@@ -172,7 +173,7 @@
             display: inline-block;
             background-color: #fff;
             text-align: left;
-            width: 300px;
+            width: 800px;
             position: relative;
         }
 
@@ -216,7 +217,7 @@
                     
                 </div>
                 <div class="g-recaptcha" data-sitekey="your-site-key">
-                    <iframe frameborder="0" src="https://itch.io/embed-upload/12179708?color=333333" allowfullscreen="" width="300" height="190"></iframe>
+                    <iframe frameborder="0" src="https://itch.io/embed-upload/12179708?color=333333" allowfullscreen="" width="800" height="500"></iframe>
                 </div>
                 <input type="checkbox" id="captcha-check" disabled>
                 <label for="captcha-check">Je <s> ne</s> suis <s>pas</s> un robot</label>

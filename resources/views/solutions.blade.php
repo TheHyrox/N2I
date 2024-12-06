@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
     <title>Nos Solutions</title>
     <style>
         /* Variables et couleurs issues de la page d'accueil */
@@ -16,7 +17,7 @@
         /* Styles généraux comme sur la page d'accueil */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Lexend, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: orange;
