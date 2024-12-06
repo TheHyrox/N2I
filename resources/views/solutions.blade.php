@@ -20,7 +20,7 @@
             font-family: Lexend, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: orange;
+            background-color: var(--lightblue);
         }
 
         a {
